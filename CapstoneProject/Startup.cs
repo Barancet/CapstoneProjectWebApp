@@ -9,6 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using CapstoneProject.Models;
+using Microsoft.Extensions.Options;
+using CapstoneProject.Services;
+
 namespace CapstoneProject
 {
     public class Startup
@@ -23,6 +27,16 @@ namespace CapstoneProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<CapstoneDatabaseSettings>(
+                Configuration.GetSection(nameof(CapstoneDatabaseSettings)));
+
+            services.AddSingleton<ICapstoneDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<CapstoneDatabaseSettings>>().Value);
+
+            services.AddSingleton<ProductService>();
+
             services.AddControllersWithViews();
         }
 
