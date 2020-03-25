@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CapstoneProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/products")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : Controller
     {
 
         private readonly ProductService _productService;
@@ -18,6 +18,13 @@ namespace CapstoneProject.Controllers
         public ProductsController(ProductService productService)
         {
             _productService = productService;
+        }
+
+
+        public ViewResult Index()
+        {
+            return View("Products");
+            //
         }
 
         [HttpGet]

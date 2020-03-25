@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CapstoneProject.Models;
+using MongoDB.Driver.GridFS;
 
 namespace CapstoneProject.Services
 {
     public class ProductService
     {
+        public IGridFSBucket GridFsBucket { get; set; }
+
         private readonly IMongoCollection<Product> _products;
 
         public ProductService(ICapstoneDatabaseSettings settings)
@@ -17,6 +20,8 @@ namespace CapstoneProject.Services
             var database = client.GetDatabase(settings.DatabaseName);
 
             _products = database.GetCollection<Product>(settings.CapstoneCollectionName);
+
+            GridFsBucket = new GridFSBucket(database);
         }
 
         public List<Product> Get() =>
