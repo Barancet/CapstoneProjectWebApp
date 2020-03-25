@@ -4,6 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
+
+
 <h1>Create</h1>
 
 <h4>Product</h4>
@@ -63,16 +65,48 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add Product" class="btn btn-primary" />
+                <input type="submit" value="Add Product" class="btn btn-primary" id="btnCreate" onclick="alert('Product has been added');" />
             </div>
         </form>
     </div>
+</div>
+
+<div id="confirmDialog" title="Save Product" hidden>
+    <p>Product Has Been Added</p>
 </div>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
+@if (ViewBag.Alert == true)
+{
+    <div class="alert alert-danger">Product has been added</div>
+}
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
+@*<script>
+        $(function () {
+            $('#btnCreate').click(function (e) {
+                e.preventDefault();
+            });
+        });
+
+        $("#confirmDialog").dialog({
+            autoOpen: false,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("Close");
+                }
+            },
+        });
+    </script>
+
+*@
