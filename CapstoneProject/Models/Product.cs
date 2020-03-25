@@ -46,7 +46,6 @@ namespace CapstoneProject.Models
         [BsonElement("ImageUrl")]
         [Display(Name = "photo")]
         [DataType(DataType.ImageUrl)]
-        [Required]
         public string ImageUrl { get; set; }
 
         [BsonElement("visibility")]
