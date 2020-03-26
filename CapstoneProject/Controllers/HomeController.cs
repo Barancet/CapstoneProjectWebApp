@@ -31,15 +31,40 @@ namespace CapstoneProject.Controllers
             _productService = productService;
         }
 
+        public async Task<IActionResult> Products(string sortOrder, string searchString){
+        
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
+
+            var products = from p in _productService.Get()
+                           select p;
+
+            if(!String.IsNullOrEmpty(searchString)){
+                products = products.Where(p => p.Name.Contains(searchString) ||
+                p.Description.Contains(searchString));
+            }
+
+            switch(sortOrder){
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.Name);
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Name);
+                    break;
+            }
+
+            return View(products.ToList());
+        }
+
         public ViewResult Index()
         {
             return View();
         }
 
-        public ViewResult Products()
+/*        public ViewResult Products()
         {
             return View(_productService.Get());
-        }
+        }*/
 
         public ViewResult Create()
         {
