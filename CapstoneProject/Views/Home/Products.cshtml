@@ -13,31 +13,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                Type
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                Price
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DietaryRestrictions)
+                Dietary Restrictions
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AmountQty)
+                @*@Html.DisplayNameFor(model => model.AmountQty)*@ Amount Quantity
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MinProductOrderPoint)
+                @*@Html.DisplayNameFor(model => model.MinProductOrderPoint)*@ Minimum Order Point
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                Image
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.isVisable)
+                @* @Html.DisplayNameFor(model => model.isVisable)*@ Visible
             </th>
             <th></th>
         </tr>
@@ -73,8 +73,8 @@
                 @Html.DisplayFor(modelItem => item.isVisable)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

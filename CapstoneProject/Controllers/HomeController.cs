@@ -15,6 +15,8 @@ namespace CapstoneProject.Controllers
         private readonly ILogger<HomeController> _logger;
 
 
+        bool productisAdded;
+
         private readonly ProductService _productService;
 
         //public HomeController(ProductService productService)
@@ -24,6 +26,7 @@ namespace CapstoneProject.Controllers
 
         public HomeController(ILogger<HomeController> logger, ProductService productService)
         {
+            productisAdded = false;
             _logger = logger;
             _productService = productService;
         }
@@ -61,8 +64,12 @@ namespace CapstoneProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                productisAdded = true;
                 _productService.Create(product);
-                return RedirectToAction(nameof(Products));
+                ViewBag.Alert = productisAdded;
+
+                return RedirectToAction(nameof(Products)); 
+                
             }
             return View(product);
         }

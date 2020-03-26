@@ -4,19 +4,21 @@
     ViewData["Title"] = "Create";
 }
 
+
+
 <h1>Create</h1>
 
 <h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="Id" class="control-label"></label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -38,41 +40,74 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DietaryRestrictions" class="control-label"></label>
+                <label asp-for="DietaryRestrictions" class="control-label">Dietary Restrictions</label>
                 <input asp-for="DietaryRestrictions" class="form-control" />
                 <span asp-validation-for="DietaryRestrictions" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AmountQty" class="control-label"></label>
+                <label asp-for="AmountQty" class="control-label">Amount Quantity</label>
                 <input asp-for="AmountQty" class="form-control" />
                 <span asp-validation-for="AmountQty" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MinProductOrderPoint" class="control-label"></label>
+                <label asp-for="MinProductOrderPoint" class="control-label">Minimum Order point</label>
                 <input asp-for="MinProductOrderPoint" class="form-control" />
                 <span asp-validation-for="MinProductOrderPoint" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
+                <input asp-for="ImageUrl" class="form-control" type="file" name="ImageUrl" id="ImageUrl" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="isVisable" /> @Html.DisplayNameFor(model => model.isVisable)
+                    <input class="form-check-input" asp-for="isVisable" /> @*@Html.DisplayNameFor(model => model.isVisable)*@ Visible
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Add Product" class="btn btn-primary" id="btnCreate" onclick="alert('Product has been added');" />
             </div>
         </form>
     </div>
+</div>
+
+<div id="confirmDialog" title="Save Product" hidden>
+    <p>Product Has Been Added</p>
 </div>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
+@if (ViewBag.Alert == true)
+{
+    <div class="alert alert-danger">Product has been added</div>
+}
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
+@*<script>
+        $(function () {
+            $('#btnCreate').click(function (e) {
+                e.preventDefault();
+            });
+        });
+
+        $("#confirmDialog").dialog({
+            autoOpen: false,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("Close");
+                }
+            },
+        });
+    </script>
+
+*@
