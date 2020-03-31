@@ -62,6 +62,7 @@ namespace CapstoneProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult<Product> Create(Product product)
         {
+            productisAdded = false;
             if (ModelState.IsValid)
             {
                 productisAdded = true;
