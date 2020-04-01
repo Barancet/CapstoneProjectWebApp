@@ -5,7 +5,7 @@
 
 
 #extra things to remove
-.appsettings.json
+*.appsettings.json
 
 # User-specific files
 *.rsuser
