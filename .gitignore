@@ -342,3 +342,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/CapstoneProject/appsettings.json
