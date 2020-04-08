@@ -1,0 +1,88 @@
+﻿@model CapstoneProject.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div>
+    @*<h4>Product</h4>*@
+    <h3>
+        @Html.DisplayFor(model => model.Name)
+    </h3>
+   
+    <hr />
+    <dl class="row">
+        @*<dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>*@
+        @*<dt class="col-sm-2">*@
+            @*@Html.DisplayNameFor(model => model.Name)*@
+            @*Name
+        </dt>*@
+        @*<dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>*@
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.Type)*@
+            Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.Description)*@
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.Price)*@
+            Price
+        </dt>
+        <dd class="col-sm-10">
+            $@Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.DietaryRestrictions)*@
+            Dietary Restrictions
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DietaryRestrictions)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.AmountQty)*@
+            Amount Quantity
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AmountQty)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.MinProductOrderPoint)*@
+            Minimum Order Point
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MinProductOrderPoint)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.ImageUrl)*@
+            Image
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.isVisable)*@
+            Visible
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.isVisable)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

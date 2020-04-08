@@ -13,8 +13,6 @@ namespace CapstoneProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-
         bool productisAdded;
 
         private readonly ProductService _productService;
@@ -59,6 +57,12 @@ namespace CapstoneProject.Controllers
         public ViewResult Index()
         {
             return View();
+        }
+
+        public ViewResult Details(string? id)
+        {
+            var product = _productService.Get(id);
+            return View(product);
         }
 
 /*        public ViewResult Products()

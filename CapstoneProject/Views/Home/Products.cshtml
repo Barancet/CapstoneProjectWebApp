@@ -29,22 +29,7 @@
                     Type
                 </th>
                 <th>
-                    Description
-                </th>
-                <th>
                     Price
-                </th>
-                <th>
-                    Dietary Restrictions
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.AmountQty)*@ Amount Quantity
-                </th>
-                <th>
-                    @*@Html.DisplayNameFor(model => model.MinProductOrderPoint)*@ Minimum Order Point
-                </th>
-                <th>
-                    Image
                 </th>
                 <th>
                     @* @Html.DisplayNameFor(model => model.isVisable)*@ Visible
@@ -62,29 +47,15 @@
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DietaryRestrictions)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AmountQty)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MinProductOrderPoint)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                    $@Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.isVisable)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Details", "Details", new { id=item.Id })
+
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id  })
                 </td>
             </tr>
 }
