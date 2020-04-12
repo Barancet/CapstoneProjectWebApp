@@ -1,13 +1,62 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .grid-container {
+        display: grid;
+        grid-column-gap: 60px;
+        grid-template-columns: auto auto;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+
+    .grid-item {
+        /*background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);*/
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .item1:hover .image {
+        opacity: 0.3;
+    }
+
+    image {
+        transition: .5s ease;
+    }
+
+    .item2:hover .image2 {
+        opacity: 0.3;
+    }
+
+    image2 {
+        transition: .5s ease;
+    }
+
+
+
+</style>
+
 
 <div class="text-center">
-    <h1 class="display-4">Welcome La Brehandaise Administrator</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="item1">
+                <a asp-action="Products"> <img class="image" src="~/pictures/productsDashboard.jpg" width="300" height="400" /></a>
+                <div class="text">Products</div>
+            </div>
+        </div>
 
-    <img src="~/pictures/lb.jpg" />
 
+        <div class="grid-item">
+            <div class="item2">
+                <a asp-action="Products"> <img class="image2" src="~/pictures/classesDashboard.jpg" width="300" height="400" /></a>
+                <div class="text">Classes</div>
+            </div>
+        </div>
+    </div>
+    @*<img src="~/pictures/lb.jpg" />*@
     <br />
-    <a class="btn btn-info" asp-action="Products"> Products </a>
 
 </div>
